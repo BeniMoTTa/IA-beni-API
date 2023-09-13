@@ -3,6 +3,13 @@ import { Separator } from "./components/ui/separator";
 import { Github, FileVideo, Upload } from "lucide-react";
 import { Textarea } from "./components/ui/textarea";
 import { Label } from "./components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select";
 
 export function App() {
   return (
@@ -71,7 +78,29 @@ export function App() {
           </form>
           <Separator />
           <form className="space-y-6">
-            <div className=""></div>
+            <div className="space-y-2">
+              <Label>Modelo</Label>
+              <Select defaultValue="gpt3.5">
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="gpt3.5">GPT 3.5-turbo 16K</SelectItem>
+                </SelectContent>
+              </Select>
+              <span className="block text-muted-foreground italic">
+                Você poderá customizar essa opção em breve
+              </span>
+            </div>
+            <Separator />
+
+            <div className="space-y-2">
+              <Label>Temperatura</Label>
+              <span className="block text-muted-foreground italic">
+                Valores mais altos tendem a deixar o resultado mais criativo e
+                com possíveis erros.
+              </span>
+            </div>
           </form>
         </aside>
       </main>
