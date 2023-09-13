@@ -9,10 +9,10 @@ POST http://localhost:3333/videos
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Disposition: form-data; name="file"; filename="testando.mp3"
 Content-Type: audio/mpeg
 
-< ./example.mp3
+< ./testando.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
@@ -23,13 +23,27 @@ Content-Type: audio/mpeg
 
 # @name create-transcription
 
-POST http://localhost:3333/videos/c6ace08c-08d8-4d6a-99a1-580bd0829a01/transcription
+POST http://localhost:3333/videos/25408c39-99db-4024-9c3c-28ef6c5fc03d/transcription
 Content-Type: application/json
 
 {
-    "prompt": "quem de nos dois, musica"
+    "prompt": "cidadao de bem, Podcast"
 }
 
+
+###
+
+# @name generateai
+
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+    "videoId": "25408c39-99db-4024-9c3c-28ef6c5fc03d",
+    "temperature":0.5,
+    "template": "Resumo feito da transcrição do video selecionado e cadastrado a seguir: '''{transcription}'''"
+
+}
 
 
 
