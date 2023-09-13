@@ -1,10 +1,10 @@
 import { fastify } from "fastify";
+import { prisma } from "./lib/prisma";
+import { getAllPromptsRoute } from "./routes/getAllPrompts";
 
 const app = fastify();
 
-app.get("/", () => {
-  return "Para quem está trabalhando, cadê a p**** do meu vinho ?";
-});
+app.register(getAllPromptsRoute);
 
 app
   .listen({
