@@ -9,15 +9,26 @@ POST http://localhost:3333/videos
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="1.png"
+Content-Disposition: form-data; name="file"; filename="example.mp3"
 Content-Type: audio/mpeg
 
-< ./1.png
+< ./example.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
 
+###
 
+
+
+# @name create-transcription
+
+POST http://localhost:3333/videos/c6ace08c-08d8-4d6a-99a1-580bd0829a01/transcription
+Content-Type: application/json
+
+{
+    "prompt": "quem de nos dois, musica"
+}
 
 
 
