@@ -35,7 +35,22 @@ export function App() {
             selecionado.
           </p>
         </div>
-        <aside className="w-80"></aside>
+        <aside className="w-80 space-y-6">
+          <form className="space-y-6">
+            <label
+              htmlFor="video"
+              className="border flex rounded-md aspect-video"
+            >
+              Carregar Vídeo
+            </label>
+            <input
+              type="file"
+              id="video"
+              accept="video/mp4"
+              className="sr-only"
+            />
+          </form>
+        </aside>
       </main>
     </div>
   );
