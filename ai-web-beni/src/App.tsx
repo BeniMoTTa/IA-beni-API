@@ -1,6 +1,6 @@
 import { Button } from "./components/ui/button";
 import { Separator } from "./components/ui/separator";
-import { Github, FileVideo, Upload } from "lucide-react";
+import { Github, FileVideo, Upload, Wand2 } from "lucide-react";
 import { Textarea } from "./components/ui/textarea";
 import { Label } from "./components/ui/label";
 import {
@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./components/ui/select";
+import { Slider } from "./components/ui/slider";
 
 export function App() {
   return (
@@ -79,6 +80,20 @@ export function App() {
           <Separator />
           <form className="space-y-6">
             <div className="space-y-2">
+              <Label>Prompt</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione um prompt..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="title">Título do Youtube</SelectItem>
+                  <SelectItem value="description">
+                    Descrição do Youtube
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
               <Label>Modelo</Label>
               <Select defaultValue="gpt3.5">
                 <SelectTrigger>
@@ -94,13 +109,19 @@ export function App() {
             </div>
             <Separator />
 
-            <div className="space-y-2">
+            <div className="space-y-4">
               <Label>Temperatura</Label>
+              <Slider min={0} max={1} step={0.1} />
               <span className="block text-muted-foreground italic">
                 Valores mais altos tendem a deixar o resultado mais criativo e
                 com possíveis erros.
               </span>
             </div>
+            <Separator />
+            <Button type="submit" className="w-full">
+              Executar
+              <Wand2 className="w-4 h-4 ml-2" />
+            </Button>
           </form>
         </aside>
       </main>
